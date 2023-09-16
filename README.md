@@ -2,6 +2,6 @@
 Repositorio de StudyTogether, para la asignatura de Infraestructura Virtual.
 
 **Problema a Resolver:**
-Al cliente, que pasa muchas horas estudiando/trabajando, le gustaría tener una forma de pautar sus descansos y rutinas saludables durante estos intervalos. Además, quiere tener una forma de conectar con otros estudiantes o compañeros de trabajo, para compartir estos mismos hábitos.
+El problema a resolver es la inactividad fisica y falta de descanso adecuada entre los estudiantes y trabajadores durante sus periodos de estudio/trabajo. Además muchos de ellos desearían poder coordinar y sincronizar estos hábitos y descansos con sus compañeros.
 
 [Configuración necesaria.](./documentacion/configuracion.md) 

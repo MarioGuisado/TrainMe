@@ -27,4 +27,4 @@ Esta información puede ser recopilada a través de una entrevista postregistro 
 
 [Historias de usuario.](./docs/HUs.md)
 
-[Milstones.](./docs/milstones.md) 
+[Milestones.](./docs/milestones.md) 

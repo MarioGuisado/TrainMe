@@ -24,5 +24,7 @@ Esta información puede ser recopilada a través de una entrevista postregistro 
 
 ## Documentación
 [Configuración necesaria.](./docs/configuracion.md)
+
 [Historias de usuario.](./docs/HUs.md)
+
 [Milstones.](./docs/milstones.md) 

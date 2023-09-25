@@ -3,12 +3,13 @@
 
 ## Milestone 0 
 
-Se debe analizar la historia de usuario e identificar las identidades del problema así como sus relaciones, y crear el código base que permita implementar dichas entidades y trabajar con ellas. El producto será válido cuando se haya traducido a código correctamente todos aquellos elementos y relaciones que forman el problema.
+Este hito será alcanzado correctamente cuando se haya traducido a código el modelo del problema. Este modelo está formado por dos identidades principales: los entrenadores y los atletas, y las relaciones entre ellos -el atleta busca un entrenador que se adecúe a sus necesidades y el entrenador busca un atleta que encaje en el perfil vacante-.
+Estas identidades no pueden comunicarse directamente, la forma de establecer una conexión será a través de un emparejamiento generado posteriormente.
 
 
 ## Milestone 1 
 
-El producto debe recopilar información relevante sobre los atletas y entrenadores, y normalizarla. La información debe ser correctamente procesada, de forma que no presente anomalías, errores, o datos que no estén codificados y normalizados. El producto será válido cuando, usando esta información, se pueda crear un match y generar una sugerencia de entrenador al atleta.
+La información disponibel de los atletas y entrenadores debe ser correctamente procesada, de forma que no presente anomalías, errores, o datos que no estén codificados y normalizados. El hito será alcanzado cuando, usando esta información, se pueda crear un match entre entrenador y atleta.
 
 
 

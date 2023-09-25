@@ -22,4 +22,9 @@ De la misma manera, se deberá recopilar información sobre los entrenadores reg
 
 Esta información puede ser recopilada a través de una entrevista postregistro a los nuevos usuarios, y procesada a través de clustering y aplicando el algoritmo K-Means, para sugerir los perfiles de entrenadores que se adecuen más al atleta.
 
-[Configuración necesaria.](./documentacion/configuracion.md) 
+## Documentación
+[Configuración necesaria.](./docs/configuracion.md)
+
+[Historias de usuario.](./docs/HUs.md)
+
+[Milestones.](./docs/milestones.md) 

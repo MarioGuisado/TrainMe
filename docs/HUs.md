@@ -3,9 +3,14 @@
 
 ## [HU001]
 
-**Marcos García López**. 17 años, nació en Almería pero se mudó a los 7 años a Granada. Estudiante de bachillerato de ciencias de la salud, quiere graduarse en Ciencias de la Actividad Física y del Deporte. Siempre ha sido un apasionado del deporte y del gimnasio. Es un atleta novato en la categoría de -83 kg y con gran compromiso por su objetivos. 
+**Marcos García López**
+
+Marcos es un atleta novato en el powerlifting y está buscando un entrenador que se adecúe a sus necesidades, pero se siente abrumado con las posibilidades y no sabe cuál escoger. Los entrenadores suelen filtrar a los atletas que escogen dependiendo de su edad, categoría de peso, nivel de rendimiento y compromiso. Además, este no es el único factor a tener en cuenta, la modalidad de entreno (semipresencial/presencial/online), el método de comunicación y la disponibilidad son también muy importantes a la hora de decantarse por alguien.
 
 
-"Llevo 1 año en el gimnasio y desde el principio me sentí muy atraído hacia el powerlifting. Ahora, quiero dar el paso y comenzar a entrenar para competir por primera vez, sin embargo necesito un entrenador personal que me ayude a prepararme. En mi caso preferiría un entrenador semipresencial, ya que tengo clase de lunes a viernes, y me gustaría comunicarme por WhatsApp con él porque es más sencillo que estar mandando correos o usar Telegram. Aunque hay mucha oferta de entrenadores, no sé cuál me vendría mejor para mí. Existen entrenadores que buscan atletas de mayor o menor nivel, edad, categoría de peso... La elección se complica aún más cuando se tiene en cuenta las distintas modalidades de asesoría, la forma de comunicación con el atleta, o incluso el compromiso que buscado. Me siento abrumado con las posibilidades y no sé cuál elegir."
+## [HU002]
 
+**Raúl Pérez Pérez**
+
+Raúl es un experimentado entrenador de powerlifting y quiere encontrar atletas que se adecúen a lo que busca: alto rendimiento y máximo compromiso. Le es indiferente la categoría de peso o edad, y se puede ajustar a la modalidad de entreno, comunicación y disponibilidad del cliente. 
 

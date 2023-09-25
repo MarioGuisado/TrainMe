@@ -9,7 +9,7 @@ Estas identidades no pueden comunicarse directamente, la forma de establecer una
 
 ## Milestone 1 
 
-La información disponibel de los atletas y entrenadores debe ser correctamente procesada, de forma que no presente anomalías, errores, o datos que no estén codificados y normalizados. El hito será alcanzado cuando, usando esta información, se pueda crear un match entre entrenador y atleta.
+La información disponible de los atletas y entrenadores debe ser correctamente procesada, de forma que no presente anomalías, errores, o datos que no estén codificados y normalizados. El hito será alcanzado cuando, usando esta información, se pueda crear un match entre entrenador y atleta.
 
 
 

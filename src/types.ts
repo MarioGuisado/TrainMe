@@ -15,3 +15,9 @@ export const ModalidadEntreno = new Map<number, string>([
     [1, 'SEMIPRESENCIAL'],
     [2, 'ONLINE'],
 ]);
+
+export const TipoContacto = new Map<number, string>([
+    [0, 'Whatsapp'],
+    [1, 'Telegram'],
+    [2, 'Email'],
+]);

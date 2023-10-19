@@ -22,5 +22,9 @@ interface TramoHorario {
 export class DisponibilidadHoraria {
     
     private _tramosPorDia: Map<DiasSemana, TramoHorario[]>;
+
+    constructor() {
+        this._tramosPorDia = new Map<DiasSemana, TramoHorario[]>();
+    }
 }
 

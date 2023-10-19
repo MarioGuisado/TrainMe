@@ -1,2 +1,4 @@
 lenguaje: TypeScript 
-entidad:
+entidad: 
+  - src/AtletaDisponible.ts
+  - src/EntrenadorDisponible.ts

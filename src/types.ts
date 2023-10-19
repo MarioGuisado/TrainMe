@@ -9,3 +9,9 @@ export const Compromiso = new Map<number, string>([
     [2, 'Medio'],
     [3, 'Alto'],
 ]);
+
+export const ModalidadEntreno = new Map<number, string>([
+    [0, 'PRESENCIAL'],
+    [1, 'SEMIPRESENCIAL'],
+    [2, 'ONLINE'],
+]);

@@ -1,8 +1,8 @@
-import { Atelta } from "./Atleta";
+import { Atleta } from "./Atleta";
 import { EntrenadorDisponible } from "./EntrenadorDisponible";
 import { DisponibilidadHoraria } from "./DisponibilidadHoraria";
 
-export class AtletaDisponible extends Atelta {
+export class AtletaDisponible extends Atleta {
     private _id: number;
     private _entrenadoresSugeridos: EntrenadorDisponible[];
     private _entrenadorElegido: EntrenadorDisponible;

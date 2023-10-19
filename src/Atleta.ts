@@ -1,6 +1,6 @@
 import { DisponibilidadHoraria } from "./DisponibilidadHoraria";
 
-export class Atelta{
+export class Atleta{
     private _fechaNacimiento: number;
     private _nivelRendimiento: Map<number, string>;
     private _nivelCompromiso: Map<number, string>;

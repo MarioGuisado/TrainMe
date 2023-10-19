@@ -21,3 +21,13 @@ export const TipoContacto = new Map<number, string>([
     [1, 'Telegram'],
     [2, 'Email'],
 ]);
+
+export const categoriasPeso = new Map<string,[number,number]>([
+    ["-66", [0, 66]],
+    ["-74", [66, 74]],
+    ["-83", [74, 83]],
+    ["-93", [83, 93]],
+    ["-105", [93, 105]],
+    ["-120", [105,120 ]],
+    ["+120", [120, 1000]],
+])

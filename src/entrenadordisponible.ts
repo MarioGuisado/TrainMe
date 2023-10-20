@@ -1,6 +1,6 @@
-import { Entrenador } from "./Entrenador";
-import { AtletaDisponible } from "./AtletaDisponible";
-import { DisponibilidadHoraria } from "./DisponibilidadHoraria";
+import { Entrenador } from "./entrenador";
+import { AtletaDisponible } from "./atletadisponible";
+import { DisponibilidadHoraria } from "./disponibilidadhoraria";
 
 export class EntrenadorDisponible extends Entrenador {
     private _id: number;

@@ -1,4 +1,4 @@
-import { DisponibilidadHoraria } from "./DisponibilidadHoraria";
+import { DisponibilidadHoraria } from "./disponibilidadhoraria";
 
 export class Atleta{
     private _fechaNacimiento: number;

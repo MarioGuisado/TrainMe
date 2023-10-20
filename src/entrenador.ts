@@ -1,4 +1,4 @@
-import { DisponibilidadHoraria } from "./DisponibilidadHoraria";
+import { DisponibilidadHoraria } from "./disponibilidadhoraria";
 
 export class Entrenador {
     private _rangoEdad: [number, number];

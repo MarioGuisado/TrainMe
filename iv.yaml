@@ -1,4 +1,4 @@
 lenguaje: TypeScript 
 entidad: 
-  - src/AtletaDisponible.ts
-  - src/EntrenadorDisponible.ts
+  - src/atletadisponible.ts
+  - src/entrenadordisponible.ts

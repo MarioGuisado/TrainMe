@@ -1,0 +1,4 @@
+lenguaje: TypeScript 
+entidad: 
+  - src/atletadisponible.ts
+  - src/entrenadordisponible.ts

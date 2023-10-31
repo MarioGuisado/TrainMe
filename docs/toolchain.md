@@ -13,3 +13,22 @@ A continuación, se describen los criterios de elección de las herramientas que
 **Facilidad de configuración** Siguiendo con la norma establecida en el criterio anterior, de la misma manera que no es necesario emplear una herramienta que ofrezca muchas más posibilidades de las que queremos, tampoco será necesario emplear aquellas cuya configuración sea muy complicada, teniendo en cuenta que se está desarrollando un proyecto relativamente simplificado.
 
 **Integración con el resto de herramientas** Hay que tener en cuenta que se establecerá no una, sino un conjunto de herramientas que pueden necesitar interactuar entre sí, por lo que hay que escoger una selección de aquellas que trabajen bien entre ellas.
+
+
+## Elección runtime
+
+A la hora de establecer la toolchain, se comienza por determinar cual será el entorno de ejecución de nuestra aplicación. Entre los entornos más conocidos para TypeScript encontramos:
+
+-Node.js: Aunque fue diseñado para JavaScript, admite TypeScript de forma nativa, es muy utilizado en aplicaciones del lado del servidor y es ampliamente conocido.
+
+-Deno: Parte de la misma base que Node.js, pero tiene algunas características que lo diferencian como los módulos de seguridad, la gestión de dependencias mediantes URLs, y la compatibilidad con TypeScript de forma nativa.
+
+-Electron: Está dirigido a las aplicaciones multiplataforma con tecnologías web.
+
+-React: Dirigido a aplicaciones móviles.
+
+-Otros entornos específicos (IoT, Unity...)
+
+De estas opciones, que son las principales disponibles en el mercado actual, se descarta Electron debido a su enfoque a las aplicaciones con tecnologías web, algo que no será necesario en nuestro proyecto. React, aunque muy extendido, está diseñado para entornos móviles. Otras herramientas como Unity permiten la ejecución de código TypeScript pero son demasiado específicos y dirigidos a un tipo de software que no será el desarollado en este proyecto (videojuegos, animaciones...).
+
+Por tanto, los dos candidatos finales serán Deno y Node.js. Aunque Deno presenta algunas diferencias notables con respecto a Node, como la mayor seguridad y la eliminación de la necesidad de usar un compilador específico como tsc, optaremos por usar Node debido a la simpleza del mismo, algo que queremos en nuestro proyecto, la facilidad de configuración, buen rendimiento e integración con el resto de herramientas que debemos escoger para la toolchain.

@@ -27,3 +27,5 @@ De la misma manera, se deberá recopilar información sobre los entrenadores reg
 [Historias de usuario.](./docs/HUs.md)
 
 [Milestones.](./docs/milestones.md) 
+
+[Toolchain.](./docs/toolchain.md)

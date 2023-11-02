@@ -65,9 +65,9 @@ Dada la simpleza de nuestro proyecto, cualquier de los task runners más popular
 
 ## Comprobación sintaxis
 
-Para ejecutar la tarea que comprueba la sintaxis de nuetro proyecto, ejecutaremos en la terminal el comando:
+Para ejecutar la tarea que comprueba la sintaxis de nuetro proyecto, ejecutamos en la terminal el comando:
 
 ```bash
 npm run check
-```
+``` 
  

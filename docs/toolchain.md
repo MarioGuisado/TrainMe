@@ -62,3 +62,10 @@ Elegidos el runtime y gestor de dependencias, queda escoger el task runner. De e
 
 
 Dada la simpleza de nuestro proyecto, cualquier de los task runners más populares del mercado podrían ser implementados sin dificultad, sin embargo, aprovechando NPM, y maximizando así la integración de las herramientas de nuestra toolchain, usaremos la posibilidad de usar los scripts que definamos a través de NPM. Se usará el compilador de TypeScript tsc para un script que ejecutará NPM y que se definirá en el correspondiente package.json. La facilidad de configuración es notable y la integración con el lenguaje es máxima.
+
+## Comprobación sintaxis
+
+Para ejecutar la tarea que comprueba la sintaxis de nuetro proyecto, ejecutaremos en la terminal el comando:
+
+npm run check
+ 

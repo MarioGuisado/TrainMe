@@ -32,3 +32,33 @@ A la hora de establecer la toolchain, se comienza por determinar cual será el e
 De estas opciones, que son las principales disponibles en el mercado actual, se descarta Electron debido a su enfoque a las aplicaciones con tecnologías web, algo que no será necesario en nuestro proyecto. React, aunque muy extendido, está diseñado para entornos móviles. Otras herramientas como Unity permiten la ejecución de código TypeScript pero son demasiado específicos y dirigidos a un tipo de software que no será el desarollado en este proyecto (videojuegos, animaciones...).
 
 Por tanto, los dos candidatos finales serán Deno y Node.js. Aunque Deno presenta algunas diferencias notables con respecto a Node, como la mayor seguridad y la eliminación de la necesidad de usar un compilador específico como tsc, optaremos por usar Node debido a la simpleza del mismo, algo que queremos en nuestro proyecto, la facilidad de configuración, buen rendimiento e integración con el resto de herramientas que debemos escoger para la toolchain.
+
+## Elección gestor de dependencias
+
+Una vez escogido el runtime de nuestro proyecto, debemos elegir el gestor de dependencias. Entre los pricipales y más usados tenemos:
+
+-NPM (Node Package Manager): Es el gestor de dependencias por defecto de Node.js. Es el más extendido entre la comunidad y tiene muchísimos paquetes públicos como resultado.
+
+-Yarn: Nace como respuesta por parte de Facebook a npm, por lo que sigue siendo compatible con Node.js. 
+
+-PNPM: Es un gestor minimalista centrado en la eficiencia.
+
+-Otros gestores específicos para ecosistemas -como el de Angular, ng-.
+
+
+Dada nuestra elección de entorno de ejecución (Node), ya contamos con el gestor NPM preinstalado. Sin embargo, creo que con motivo de aprender y profundizar en los distintos gestores de dependencias, Yarn es una elección más interesante. No solo es un gestor con una instalación rápida y sencilla, sino que además provee de una gestión mas eficiente de los paquetes que el propio npm (a pesar de que en nuestro simple proyecto no vayamos a sacarle partido). Otros gestores como PNPM son interesantes por su enfoque en la eficiencia y reducción de espacio en disco pero ante un gestor más conocido y representativo como Yarn creo que son menos interesantes. Además presentan menor integración en la toolchain. Otros gestores como ng no nos servirán ya que requieren de un ecosistema adaptado a ellos.
+
+## Elección task runner
+
+Elegidos el runtime y gestor de dependencias, queda escoger el task runner. De entre los task runners más accesibles y con buena integración con nuestras herramientas tenemos:
+
+-NPM Scripts: El gestor de paquetes NPM tiene la posibilidad de ejecutar scripts personalizados.
+
+-Gulp: Es uno de los más populares, permite automatizar casi cualquier tarea de construcción.
+
+-Grunt: Similar a Gulp pero más simple y más antiguo.
+
+-Webpack: Es un empaquetador de módulos que ofrece la posibilidad de realizar tareas de compilación, minimización etc.
+
+
+Dada la simpleza de nuestro proyecto, cualquier de los task runners más populares del mercado podrían ser implementados sin dificultad, sin embargo, con objeto de aprender a utilizar una herramienta que verdaderamente represente el ámbito actual del sector, utilizaremos Gulp (descartamos NPM Scripts y Webpack por no ser task runners puros). Gulp no solo es el más moderno de los mencionados sino que presenta la sintaxis más sencilla a la hora de configurar sus archivos, permite definir tareas de construcción directamente en TypeScript, y es más eficiente que Grunt. 

@@ -46,7 +46,7 @@ Una vez escogido el runtime de nuestro proyecto, debemos elegir el gestor de dep
 -Otros gestores específicos para ecosistemas -como el de Angular, ng-.
 
 
-Dada nuestra elección de entorno de ejecución (Node), ya contamos con el gestor NPM preinstalado. Sin embargo, creo que con motivo de aprender y profundizar en los distintos gestores de dependencias, Yarn es una elección más interesante. No solo es un gestor con una instalación rápida y sencilla, sino que además provee de una gestión mas eficiente de los paquetes que el propio npm (a pesar de que en nuestro simple proyecto no vayamos a sacarle partido). Otros gestores como PNPM son interesantes por su enfoque en la eficiencia y reducción de espacio en disco pero ante un gestor más conocido y representativo como Yarn creo que son menos interesantes. Además presentan menor integración en la toolchain. Otros gestores como ng no nos servirán ya que requieren de un ecosistema adaptado a ellos.
+Dada nuestra elección de entorno de ejecución (Node), ya contamos con el gestor NPM preinstalado. NPM es el gestor mejor integrado en Node por definición, es medianamente eficiente y será más que suficiente para las dimensiones del proyecto a tratar . Otros gestores como PNPM son interesantes por su enfoque en la eficiencia y reducción de espacio en disco pero no creo que merezca la pena usarlos ya que no se les sacará partido. Además presentan menor integración en la toolchain. Otros gestores como ng no nos servirán ya que requieren de un ecosistema adaptado a ellos.
 
 ## Elección task runner
 

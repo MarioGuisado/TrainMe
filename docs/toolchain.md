@@ -47,18 +47,3 @@ Una vez escogido el runtime de nuestro proyecto, debemos elegir el gestor de dep
 
 
 Dada nuestra elección de entorno de ejecución (Node), ya contamos con el gestor NPM preinstalado. Sin embargo, creo que con motivo de aprender y profundizar en los distintos gestores de dependencias, Yarn es una elección más interesante. No solo es un gestor con una instalación rápida y sencilla, sino que además provee de una gestión mas eficiente de los paquetes que el propio npm (a pesar de que en nuestro simple proyecto no vayamos a sacarle partido). Otros gestores como PNPM son interesantes por su enfoque en la eficiencia y reducción de espacio en disco pero ante un gestor más conocido y representativo como Yarn creo que son menos interesantes. Además presentan menor integración en la toolchain. Otros gestores como ng no nos servirán ya que requieren de un ecosistema adaptado a ellos.
-
-## Elección task runner
-
-Elegidos el runtime y gestor de dependencias, queda escoger el task runner. De entre los task runners más accesibles y con buena integración con nuestras herramientas tenemos:
-
--NPM Scripts: El gestor de paquetes NPM tiene la posibilidad de ejecutar scripts personalizados.
-
--Gulp: Es uno de los más populares, permite automatizar casi cualquier tarea de construcción.
-
--Grunt: Similar a Gulp pero más simple y más antiguo.
-
--Webpack: Es un empaquetador de módulos que ofrece la posibilidad de realizar tareas de compilación, minimización etc.
-
-
-Dada la simpleza de nuestro proyecto, cualquier de los task runners más populares del mercado podrían ser implementados sin dificultad, sin embargo, con objeto de aprender a utilizar una herramienta que verdaderamente represente el ámbito actual del sector, utilizaremos Gulp (descartamos NPM Scripts y Webpack por no ser task runners puros). Gulp no solo es el más moderno de los mencionados sino que presenta la sintaxis más sencilla a la hora de configurar sus archivos, permite definir tareas de construcción directamente en TypeScript, y es más eficiente que Grunt. 

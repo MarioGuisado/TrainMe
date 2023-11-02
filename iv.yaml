@@ -4,4 +4,4 @@ entidad:
   - src/entrenadordisponible.ts
 automatizar:
   fichero: package.json
-  orden: npm run check_sintaxis
+  orden: npm run check

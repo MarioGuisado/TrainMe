@@ -2,3 +2,6 @@ lenguaje: TypeScript
 entidad: 
   - src/atletadisponible.ts
   - src/entrenadordisponible.ts
+automatizar:
+  fichero: package.json
+  orden: npm run check_sintaxis

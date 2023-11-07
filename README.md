@@ -20,6 +20,13 @@ De la misma manera, se deberá recopilar información sobre los entrenadores reg
 - Forma de comunicación con el atleta.
 - Frecuencia y disponibilidad en las comunicaciones.
 
+## Comprobación sintaxis
+
+Para ejecutar la tarea que comprueba la sintaxis de nuetro proyecto, ejecutamos en la terminal el comando:
+
+```bash
+npm run check
+``` 
 
 ## Documentación
 [Configuración necesaria.](./docs/configuracion.md)
@@ -27,3 +34,5 @@ De la misma manera, se deberá recopilar información sobre los entrenadores reg
 [Historias de usuario.](./docs/HUs.md)
 
 [Milestones.](./docs/milestones.md) 
+
+[Toolchain.](./docs/toolchain.md)

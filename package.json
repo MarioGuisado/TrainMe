@@ -8,7 +8,7 @@
   },
   "scripts": {
     "tsc": "tsc",
-    "check": "./node_modules/.bin/tsc",
+    "check": "tsc --noEmit src/*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

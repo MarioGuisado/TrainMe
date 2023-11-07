@@ -1,31 +1,11 @@
 
 # Toolchain
 
-## Criterios de elección
-
-A continuación, se describen los criterios de elección de las herramientas que se emplearán en la toolchain que estableceremos para este proyecto.
-
-
-**1 Ventajas técnicas de cada herramienta** Para el proyecto a elaborar, se priorizará aquel software que permita un rendimiento aceptable, principalmente atendiendo tiempo de ejecución. No serán prioritarias las herramientas centradas en otros aspectos técnicos como la seguridad, la escalabilidad o el uso de recursos.
-
-**2 Documentación disponible** Una buena documentación nutre de información accesible y útil para el uso del producto, favorece la resolución de los problemas que puedan aparecer y ayuda a los usuarios a optimizar la implementación y uso de herramientas software escogidas para sus proyectos. Será un factor clave que considerar si queremos desarrollar algo que pueda escalar en el futuro. Cuanta más información -de calidad-, exista de la base sobre la que se asienta nuestro proyecto, menores las probabilidades de acumular errores técnicos y de implementación en el futuro.
-
-**3 Integración con el resto de herramientas** La integración es la facilidad con la que dos herramientas pueden interactuar entre sí. Cuantas menos configuraciones o acciones adicionales por parte del desarrollador se necesiten para que dos herramientas se comuniquen y trabajen bien entre sí, mayor será la integración.
-
-
 ## Elección runtime
 
-A la hora de establecer la toolchain, se comienza por determinar cual será el entorno de ejecución de nuestra aplicación. Entre los entornos más conocidos para TypeScript encontramos:
+A la hora de establecer la toolchain, se comienza por determinar cual será el entorno de ejecución de nuestra aplicación.
 
--Node.js: Aunque fue diseñado para JavaScript, admite TypeScript de forma nativa, es muy utilizado en aplicaciones del lado del servidor y es ampliamente conocido.
-
--Deno: Parte de la misma base que Node.js, pero tiene algunas características que lo diferencian como los módulos de seguridad, la gestión de dependencias mediantes URLs, y la compatibilidad con TypeScript de forma nativa.
-
-Siguiendo los criterios de selección establecidos:
-
-Tanto Deno como Node presentan aproximadamente el mismo rendimiento, ya que comparten el mismo motor de JavaScript (V8). Si bien Deno es más seguro que Node, este último presenta una mayor y mejor documentación, lo que reduce la probabilidad de complicaciones en el proyecto. Además como veremos má adelante favorecerá la elección del gestor de dependencias, ya que se desarrolla en conjunto con NPM, maximizando la integración de estas dos herramientas.
-
-La elección final será Node.
+Para nuestro proyecto emplearemos Node.js
 
 
 ## Elección gestor de dependencias
@@ -38,10 +18,10 @@ Una vez escogido el runtime de nuestro proyecto, debemos elegir el gestor de dep
 
 -PNPM: Es un gestor minimalista centrado en la eficiencia.
 
+**Elección del gestor de dependecias**
 
-Siguiendo los criterios de selección establecidos:
-
-Si bien PNPM es un gestor interesante, se encuentra muy centrado en la optimización de los recursos usados, algo que no buscamos en nuestro proyecto, es el que tiene menor integración y menor documentación. Yarn es más seguro que NPM y más rápido y eficiente manejando paquetes, aunque no es compatible con los paquetes de NPM. NPM tiene mayor integración con Node (por definición) y, aunque posee un rendimiento ligeramente menor, se podrían considerar igualados en este aspecto teniendo en cuenta el proyecto en el que trabajamos. Lógicamente, existe más información disponible y más facilidades para su uso y configuración para NPM que para Yarn, al ser el primero más antiguo y desarrollado en conjunto con Node.
+Para el proyecto que se está desarrollando, y las dimensiones y requisitos que prevee alcanzar, cualquier gestor de los nombrados es correcto y brindaría la funcionalidad que se requiere. La superioridad en algunos aspectos técnicos de Yarn como los algoritmos de resolución de dependencias empleados, el uso de lockfiles para garantizar compatibilidad o la capacidad de realizar operaciones en paralelo será algo de lo que no obtendremos ventaja significativa para nuestro proyecto. Mismo caso para las ventajas de gestión de recursos que ofrece PNPM. Cabe destacar que dejando aspectos técnicos a un lado, según *snyk Advisor*, PNPM cuenta con mayor mantenimiento y mejor puntuación que Yarn, y se encuentra igualado con NPM.
+Por tanto, ante un "empate técnico", en el que todos los gestores son igual de válidos, se optará por la elección más sencilla y directa, usar el propio gestor por defecto de Node, ahorrándonos así instalaciones y configuraciones adicionales.
 
 La elección final será NPM.
 
@@ -56,9 +36,10 @@ Elegidos el runtime y gestor de dependencias, queda escoger el task runner. De e
 -Grunt: Similar a Gulp pero más simple y más antiguo. Está diseñado para crear y automatizar tareas mediante archivos JSON.
 
 
-Siguiendo los criterios de selección establecidos:
+**Elección del task runner**
 
-Tanto Gulp como Grunt son herramientas más potentes que NPM Scripts y que ofrecen mayores posibilidades como task runners. La primera es más compleja que la segunda, debido a su enfoque en el código, pero usa una sintaxis más sencilla que Grunt. Para las tareas que previsiblemente automatizaremos, cualquiera de los 3 candidatos son igual de válidos y no presentan ventajas con respecto al otro. Tanto Gulp como Grunt necesitan de una instalación y mínima configuración, no así NPM Scripts, que es una funcionalidad añadida al gestor de paquetes que ya hemos seleccionado previamente. La facilidad de uso y simplicidad del mismo, su igual eficiencia con respecto a los otros candidatos, y la gran cantidad de documentación que lo respalda hacen de NPM Scripts el mejor candidato para nuestro task runner.
+Tanto Gulp como Grunt son herramientas más potentes que NPM Scripts y que ofrecen mayores posibilidades como task runners, pero para el proyecto que nos concierne, todas nos servirán por igual y producirán el mismo resultado y rendimiento.
+Si revisamos las puntuaciones ofrecidas por *snyk Advisor* para estas herramientas, vemos que se le da un 76/100 a Gulp, 85/100 a Grunt y 95/100 a NPM (hay que tener en cuenta que para el último caso se evalúa el gestor NPM al completo). Las directrices que se siguen para dar esta puntuación son el nivel de seguridad, popularidad y mantenimiento. Si bien la popularidad es un factor que no vamos a tener en cuenta, el mantenimiento será algo a valorar ya que una herramienta que se quede obsoleta producirá deudas técnicas a lo largo y ancho de nuestro proyecto. En este aspecto, NPM Script es superior a Gulp y Grunt. Además, contaremos con la ventaja de haber elegido NPM como gestor de dependencias lo que incluye NPM Scripts, y nos simplifacará el proceso de establecimiento de la toolchain.
 
 La elección final será NPM Scripts.
 

@@ -27,7 +27,7 @@ La elección final será NPM.
 
 ## Elección task runner
 
-Elegidos el runtime y gestor de dependencias, queda escoger el task runner. De entre los task runners más accesibles y con buena integración con nuestras herramientas tenemos:
+Elegidos el runtime y gestor de dependencias, queda escoger el task runner. De entre los task runners disponibles valoraremos:
 
 -NPM Scripts: El gestor de paquetes NPM tiene la posibilidad de ejecutar scripts personalizados.
 

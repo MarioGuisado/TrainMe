@@ -22,12 +22,12 @@ export const TipoContacto = new Map<number, string>([
     [2, 'Email'],
 ]);
 
-export const categoriasPeso = new Map<string,[number,number]>([
-    ["-66", [0, 66]],
-    ["-74", [66, 74]],
-    ["-83", [74, 83]],
-    ["-93", [83, 93]],
-    ["-105", [93, 105]],
-    ["-120", [105,120 ]],
-    ["+120", [120, 1000]],
-])
+export enum CategoriasPeso {
+    MENOS_66,
+    MENOS_74,
+    MENOS_83,  
+    MENOS_93,
+    MENOS_105,
+    MENOS_120,
+    MAS_120,
+};

@@ -27,6 +27,13 @@ Para ejecutar la tarea que comprueba la sintaxis de nuetro proyecto, ejecutamos 
 ```bash
 npm run check
 ``` 
+## Ejecución de tests
+
+Para ejecutar los tests de la clase AtletaDisponible y EntrenadorDisponible usamos el comando:
+
+```bash
+npm run test
+``` 
 
 ## Documentación
 [Configuración necesaria.](./docs/configuracion.md)
@@ -36,3 +43,6 @@ npm run check
 [Milestones.](./docs/milestones.md) 
 
 [Toolchain.](./docs/toolchain.md)
+
+[Tests.](./docs/tests.md)
+

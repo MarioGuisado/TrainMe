@@ -8,15 +8,20 @@
   },
   "scripts": {
     "tsc": "tsc",
-    "check": "tsc --noEmit src/*",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "check": "tsc --project . --noEmit",
+    "test": "mocha test/*"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.9.0",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
     "@typescript-eslint/parser": "^6.9.1",
-    "eslint": "^8.52.0"
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0"
   }
 }

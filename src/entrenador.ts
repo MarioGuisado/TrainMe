@@ -1,5 +1,5 @@
-import { DisponibilidadHoraria } from "./disponibilidadhoraria";
-import { Rendimiento, Compromiso, ModalidadEntreno, TipoContacto, CategoriasPeso } from "./types";
+const { DisponibilidadHoraria } = require('./disponibilidadhoraria');
+const { Rendimiento, Compromiso, ModalidadEntreno, TipoContacto, CategoriasPeso } = require('./types');
 
 
 export class Entrenador {
@@ -7,18 +7,18 @@ export class Entrenador {
     private _nivelRendimiento: Map<number, string>;
     private _nivelCompromiso: Map<number, string>;
     private _modalidadEntreno: Map<number, string>;
-    private _disponibilidadHorariaSemanal: DisponibilidadHoraria;
+    private _disponibilidadHorariaSemanal: typeof DisponibilidadHoraria;
     private _preferenciasContacto: Map<number, string>;
-    private _categoriasPeso: CategoriasPeso;
+    private _categoriasPeso: typeof CategoriasPeso;
 
     constructor(
         rangoEdad: [number, number],
         nivelRendimiento: Map<number, string>,
         nivelCompromiso: Map<number, string>,
         modalidadEntreno: Map<number, string>,
-        disponibilidadHorariaSemanal: DisponibilidadHoraria,
+        disponibilidadHorariaSemanal: typeof DisponibilidadHoraria,
         preferenciasContacto: Map<number, string>,
-        categoriasPeso: CategoriasPeso)
+        categoriasPeso: typeof CategoriasPeso)
     {
         if (rangoEdad[0] < 14 || rangoEdad[1] > 100) {
             throw new Error('El rango de edad debe estar entre 14 y 100');

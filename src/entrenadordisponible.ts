@@ -1,12 +1,12 @@
-import { Entrenador } from "./entrenador";
-import { AtletaDisponible } from "./atletadisponible";
-import { DisponibilidadHoraria } from "./disponibilidadhoraria";
-import { CategoriasPeso } from "./types";
+const { Entrenador } = require('./entrenador');
+const { AtletaDisponible } = require('./atletadisponible');
+const { DisponibilidadHoraria } = require('./disponibilidadhoraria');
+const { CategoriasPeso } = require('./types');
 
 export class EntrenadorDisponible extends Entrenador {
     private _id: number;
-    private _atletasSugeridos: AtletaDisponible[];
-    private _atletasElegidos: AtletaDisponible[];
+    private _atletasSugeridos: typeof AtletaDisponible[];
+    private _atletasElegidos: typeof AtletaDisponible[];
     private _disponibilidad: boolean;
 
     constructor(
@@ -14,9 +14,9 @@ export class EntrenadorDisponible extends Entrenador {
         nivelRendimiento: Map<number, string>,
         nivelCompromiso: Map<number, string>,
         modalidadEntreno: Map<number, string>,
-        disponibilidadHorariaSemanal: DisponibilidadHoraria,
+        disponibilidadHorariaSemanal: typeof DisponibilidadHoraria,
         preferenciasContacto: Map<number, string>,
-        categoriasPeso: CategoriasPeso,
+        categoriasPeso: typeof CategoriasPeso,
         id: number,
         ) 
     {
@@ -36,16 +36,25 @@ export class EntrenadorDisponible extends Entrenador {
     }
 
     asignarDisponibilidad(disponibilidad: boolean): void {
+        if (typeof disponibilidad !== 'boolean') {
+            throw new TypeError('El argumento debe ser un booleano');
+        }
         this._disponibilidad = disponibilidad;
     }
 
-    agregarAtleta(atleta: AtletaDisponible): void {
+    agregarAtleta(atleta: typeof AtletaDisponible): void {
+        if (!(atleta instanceof AtletaDisponible)) {
+            throw new TypeError('El argumento debe ser una instancia de AtletaDisponible');
+        }
         if (!this._atletasElegidos.includes(atleta)) {
             this._atletasElegidos.push(atleta);
         }
     }
 
-    sugerirAtleta(atleta: AtletaDisponible): void {
+    sugerirAtleta(atleta: typeof AtletaDisponible): void {
+        if (!(atleta instanceof AtletaDisponible)) {
+            throw new TypeError('El argumento debe ser una instancia de AtletaDisponible');
+        }     
         if (!this._atletasSugeridos.includes(atleta)) {
             this._atletasSugeridos.push(atleta);
         }

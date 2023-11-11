@@ -27,3 +27,7 @@ Todos los candidatos considerados cuentan con CLI.
 ## Elección
 
 Aunque todos los candidatos serían válidos y suficientes para establecer nuestros tests, creo que la mejor opción sería el framework Mocha junto con la biblioteca de aserciones Chai. Esta combinación es una de las más populares en proyectos que emplean Node.js y TypeScript, dan una visión realista de como sería un proyecto "serio" y da la oportunidad de aprender a usar herramientas presentes en el actual *state of the art*.
+
+## Desarrollo de los tests
+
+Para desarrollarlos se seguirán los principos F.I.R.S.T. Es decir, los test deben ejecutarse de forma rápida, los resultados no deben depender unos de otros, deben ser iguales independientemente del servidor en el que se ejecuten y deben informar del mismo, sin necesidad de consultar ficheros externos. Además, estos test deberían desarrollarse (idealmente según TDD), antes del propio código, para luego escribir el mismo y validarlos.

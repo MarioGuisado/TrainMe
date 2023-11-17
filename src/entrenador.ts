@@ -1,5 +1,5 @@
-const { DisponibilidadHoraria } = require('./disponibilidadhoraria');
-const { Rendimiento, Compromiso, ModalidadEntreno, TipoContacto, CategoriasPeso } = require('./types');
+import { DisponibilidadHoraria } from './disponibilidadhoraria';
+import { Rendimiento, Compromiso, ModalidadEntreno, TipoContacto, CategoriasPeso } from './types';
 
 
 export class Entrenador {

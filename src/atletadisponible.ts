@@ -1,9 +1,7 @@
-
-const Atleta = require("./atleta").Atleta;
-//const EntrenadorDisponible = require("./entrenadordisponible").EntrenadorDisponible;
-import { EntrenadorDisponible } from "./entrenadordisponible";
-const DisponibilidadHoraria = require("./disponibilidadhoraria").DisponibilidadHoraria;
-const CategoriasPeso = require("./types").CategoriasPeso;
+import { Atleta } from './atleta';
+import { EntrenadorDisponible } from './entrenadordisponible';
+import { DisponibilidadHoraria } from './disponibilidadhoraria';
+import { CategoriasPeso } from './types';
 
 export class AtletaDisponible extends Atleta {
     private _id: number;
@@ -16,13 +14,21 @@ export class AtletaDisponible extends Atleta {
         nivelRendimiento: Map<number, string>,
         nivelCompromiso: Map<number, string>,
         modalidadEntreno: Map<number, string>,
-        disponibilidadHorariaSemanal: typeof DisponibilidadHoraria,
+        disponibilidadHorariaSemanal: DisponibilidadHoraria,
         preferenciasContacto: Map<number, string>,
-        categoriasPeso: typeof CategoriasPeso,
+        categoriasPeso: CategoriasPeso,
         id: number,
         ) 
     {
-        super(fechaNacimiento, nivelRendimiento, nivelCompromiso, modalidadEntreno, disponibilidadHorariaSemanal, preferenciasContacto, categoriasPeso);
+        super(
+            fechaNacimiento,
+            nivelRendimiento,
+            nivelCompromiso,
+            modalidadEntreno,
+            DisponibilidadHoraria,
+            preferenciasContacto,
+            CategoriasPeso
+        );
         this._id = id;
         this._entrenadoresSugeridos = [];
         this._entrenadorElegido = null;

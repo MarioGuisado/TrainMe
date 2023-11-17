@@ -49,7 +49,7 @@ describe('EntrenadorDisponible', function() {
                 new Map(),
                 1 as any,
                 new Map(),
-                "a",
+                "a" as any,
                 123
             )).to.throw(TypeError);
         });
@@ -72,19 +72,19 @@ describe('EntrenadorDisponible', function() {
         });
 
         it('Asignar Atleta', function() {
-            expect(() => entrenador.agregarAtleta(atleta)).to.not.throw(TypeError);
+            expect(() => entrenador.agregarAtleta(atleta as any)).to.not.throw(TypeError);
         });
 
         it('Asignar Atleta no válido lanza error', function() {
-            expect(() => entrenador.agregarAtleta(123)).to.throw(TypeError);
+            expect(() => entrenador.agregarAtleta(123 as any)).to.throw(TypeError);
         });
 
         it('Sugerir Atleta', function() {
-            expect(() => entrenador.sugerirAtleta(atleta)).to.not.throw(TypeError);
+            expect(() => entrenador.sugerirAtleta(atleta as any)).to.not.throw(TypeError);
         });
 
         it('Sugerir Atleta no válido lanza error', function() {
-            expect(() => entrenador.sugerirAtleta(123)).to.throw(TypeError);
+            expect(() => entrenador.sugerirAtleta(123 as any)).to.throw(TypeError);
         });
     });
 });

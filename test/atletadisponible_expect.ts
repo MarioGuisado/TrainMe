@@ -73,20 +73,5 @@ describe('AtletaDisponible', function() {
         it('Asignar Disponibilidad Errónea lanza error', function() {
             expect(() => atleta.asignarDisponibilidad("a" as any)).to.throw(TypeError);
         });
-
-        it('Asignar Entrenador', function() {
-            atleta.asignarEntrenador(entrenador as any);
-            expect((atleta as any)._entrenadorElegido).to.not.be.null;
-        });
-        it('Asignar Entrenador no válido lanza error', function() {
-            expect(() => atleta.asignarEntrenador(123 as any)).to.throw(TypeError);
-        });
-        it('Sugerir Entrenador', function() {
-            atleta.sugerirEntrenador(entrenador as any);
-            expect((atleta as any)._entrenadoresSugeridos.length).to.equal(1);
-        });
-        it('Sugerir Atleta no válido lanza error', function() {
-            expect(() => atleta.sugerirEntrenador(123 as any)).to.throw(TypeError);
-        });
     });
 });

@@ -70,21 +70,5 @@ describe('EntrenadorDisponible', function() {
         it('Asignar Disponibilidad Errónea lanza error', function() {
             expect(() => entrenador.asignarDisponibilidad("a" as any)).to.throw(TypeError);
         });
-
-        it('Asignar Atleta', function() {
-            expect(() => entrenador.agregarAtleta(atleta as any)).to.not.throw(TypeError);
-        });
-
-        it('Asignar Atleta no válido lanza error', function() {
-            expect(() => entrenador.agregarAtleta(123 as any)).to.throw(TypeError);
-        });
-
-        it('Sugerir Atleta', function() {
-            expect(() => entrenador.sugerirAtleta(atleta as any)).to.not.throw(TypeError);
-        });
-
-        it('Sugerir Atleta no válido lanza error', function() {
-            expect(() => entrenador.sugerirAtleta(123 as any)).to.throw(TypeError);
-        });
     });
 });

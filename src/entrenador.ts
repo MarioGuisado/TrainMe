@@ -35,6 +35,14 @@ export class Entrenador {
         this._categoriasPeso = categoriasPeso;
     }
 
+    private validarMap(map: Map<number, string>, enumObj: object): void {
+        for (let [key, value] of map) {
+            if (!Object.keys(enumObj).includes(key.toString()) || !(Object as any).values(enumObj).includes(value)) {
+                throw new Error('El valor no es válido');
+            }
+        }
+    }
+
     private validarRangoEdad(rangoEdad: [number, number]): void {
         if (rangoEdad[0] < 14 || rangoEdad[1] > 100) {
             throw new Error('El rango de edad debe estar entre 14 y 100');
@@ -42,34 +50,18 @@ export class Entrenador {
     }
     
     private validarNivelRendimiento(nivelRendimiento: Map<number, string>): void {
-        for (let [key, value] of nivelRendimiento) {
-            if (!Object.keys(Rendimiento).includes(key.toString()) || !(Object as any).values(Rendimiento).includes(value)) {
-                throw new Error('El nivel de rendimiento no es válido');
-            }
-        }
+        this.validarMap(nivelRendimiento, Rendimiento);
     }
     
     private validarNivelCompromiso(nivelCompromiso: Map<number, string>): void {
-        for (let [key, value] of nivelCompromiso) {
-            if (!Object.keys(Compromiso).includes(key.toString()) || !(Object as any).values(Compromiso).includes(value)) {
-                throw new Error('El nivel de compromiso no es válido');
-            }
-        }
+        this.validarMap(nivelCompromiso, Compromiso);
     }
     
     private validarModalidadEntreno(modalidadEntreno: Map<number, string>): void {
-        for (let [key, value] of modalidadEntreno) {
-            if (!Object.keys(ModalidadEntreno).includes(key.toString()) || !(Object as any).values(ModalidadEntreno).includes(value)) {
-                throw new Error('La modalidad de entreno no es válida');
-            }
-        }
+        this.validarMap(modalidadEntreno, ModalidadEntreno);
     }
     
     private validarPreferenciasContacto(preferenciasContacto: Map<number, string>): void {
-        for (let [key, value] of preferenciasContacto) {
-            if (!Object.keys(TipoContacto).includes(key.toString()) || !(Object as any).values(TipoContacto).includes(value)) {
-                throw new Error('Las preferencias de contacto no son válidas');
-            }
-        }
+        this.validarMap(preferenciasContacto, TipoContacto);
     }
 }

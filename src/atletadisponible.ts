@@ -1,12 +1,9 @@
 import { Atleta } from './atleta';
-import { EntrenadorDisponible } from './entrenadordisponible';
 import { DisponibilidadHoraria } from './disponibilidadhoraria';
 import { CategoriasPeso } from './types';
 
 export class AtletaDisponible extends Atleta {
     private _id: number;
-    private _entrenadoresSugeridos: typeof EntrenadorDisponible[];
-    private _entrenadorElegido: typeof EntrenadorDisponible | null;
     private _disponibilidad: boolean;
 
     constructor(
@@ -30,8 +27,6 @@ export class AtletaDisponible extends Atleta {
             CategoriasPeso
         );
         this._id = id;
-        this._entrenadoresSugeridos = [];
-        this._entrenadorElegido = null;
         this._disponibilidad = true;
     }
 
@@ -48,22 +43,6 @@ export class AtletaDisponible extends Atleta {
             throw new TypeError('El argumento debe ser un booleano');
         }
         this._disponibilidad = disponibilidad;
-    }
-
-    asignarEntrenador(entrenador: typeof EntrenadorDisponible): void {
-        if (!(entrenador instanceof EntrenadorDisponible)) {
-            throw new TypeError('El argumento debe ser una instancia de EntrenadorDisponible');
-        }
-        this._entrenadorElegido = entrenador;
-    }   
-
-    sugerirEntrenador(entrenador: typeof EntrenadorDisponible): void {
-        if (!(entrenador instanceof EntrenadorDisponible)) {
-            throw new TypeError('El argumento debe ser una instancia de EntrenadorDisponible');
-        }
-        if (!this._entrenadoresSugeridos.includes(entrenador)) {
-            this._entrenadoresSugeridos.push(entrenador);
-        }
     }
 
 }

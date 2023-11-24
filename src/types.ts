@@ -1,25 +1,25 @@
-export const Rendimiento = new Map<number, string>([
-    [1, 'BAJO'],
-    [2, 'MEDIO'],
-    [3, 'ALTO'],
+export const Rendimiento = new Map<string, number>([
+    ['BAJO', 0],
+    ['MEDIO', 0.5 ],
+    ['ALTO', 1 ],
 ]);
 
-export const Compromiso = new Map<number, string>([
-    [1, 'Bajo'],
-    [2, 'Medio'],
-    [3, 'Alto'],
+export const Compromiso = new Map<string, number>([
+    ['BAJO', 0],
+    ['MEDIO', 0.5],
+    ['ALTO', 1],
 ]);
 
-export const ModalidadEntreno = new Map<number, string>([
-    [0, 'PRESENCIAL'],
-    [1, 'SEMIPRESENCIAL'],
-    [2, 'ONLINE'],
+export const ModalidadEntreno = new Map<string, number>([
+    ['PRESENCIAL', 0],
+    ['SEMIPRESENCIAL', 0.5],
+    ['ONLINE', 1],
 ]);
 
-export const TipoContacto = new Map<number, string>([
-    [0, 'Whatsapp'],
-    [1, 'Telegram'],
-    [2, 'Email'],
+export const TipoContacto = new Map<string, number>([
+    [ 'WHATSAPP',0],
+    ['TELEGRAM', 0.5],
+    ['EMAIL', 1 ],
 ]);
 
 export enum CategoriasPeso {
@@ -31,3 +31,8 @@ export enum CategoriasPeso {
     MENOS_120,
     MAS_120,
 };
+
+export enum TipoMatriz{
+    ENTRENADORES,
+    ATLETAS
+}

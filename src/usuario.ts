@@ -21,19 +21,19 @@ export class Usuario {
         this._preferenciasContacto = preferenciasContacto;
     }
  
-    getid(): number {
+    GetId(): number {
         return this._id;
     }
-    getnivelRendimiento(): number {
+    GetNivelRendimiento(): number {
         return this._nivelRendimiento;
     }
-    getnivelCompromiso(): number {
+    GetNivelCompromiso(): number {
         return this._nivelCompromiso;
     }
-    getmodalidadEntreno(): number {
+    GetModalidadEntreno(): number {
         return this._modalidadEntreno;
     }
-    getpreferenciasContacto(): number {
+    GetPreferenciasContacto(): number {
         return this._preferenciasContacto;
     }
 }

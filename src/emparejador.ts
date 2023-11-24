@@ -14,11 +14,11 @@ export class Emparejador {
   ProcesarUsuario(usuario: Usuario, es_entrenador:boolean): void{
     const vector: number[] = [];
 
-    vector.push(usuario.getid());
-    vector.push(usuario.getnivelRendimiento());
-    vector.push(usuario.getnivelCompromiso());
-    vector.push(usuario.getmodalidadEntreno());
-    vector.push(usuario.getpreferenciasContacto());
+    vector.push(usuario.GetId());
+    vector.push(usuario.GetNivelRendimiento());
+    vector.push(usuario.GetNivelCompromiso());
+    vector.push(usuario.GetModalidadEntreno());
+    vector.push(usuario.GetPreferenciasContacto());
     
     if(es_entrenador)
       this.matriz_entrenadores.push(vector);
@@ -77,7 +77,7 @@ export class Emparejador {
   }
 
   RealizarEmparejamiento(usuario: Usuario, es_entrenador:boolean): number {
-    let id_usuario = usuario.getid();
+    let id_usuario = usuario.GetId();
     let vector_usuario: number[] | undefined;
     let tipoMatriz: TipoMatriz;
 

@@ -5,4 +5,4 @@ entidad:
 automatizar:
   fichero: package.json
   orden: npm run 
-test: test/atletadisponible_expect.ts
+test: test/test_emparejador.ts

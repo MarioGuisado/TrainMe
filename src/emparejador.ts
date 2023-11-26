@@ -1,4 +1,4 @@
-import { TipoMatriz} from './types';
+import { TipoMatriz, OpcionFiltro} from './types';
 import { Usuario } from './usuario';
 
 
@@ -12,13 +12,8 @@ export class Emparejador {
   }
 
   ProcesarUsuario(usuario: Usuario, es_entrenador:boolean): void{
-    const vector: number[] = [];
-
-    vector.push(usuario.GetId());
-    vector.push(usuario.GetNivelRendimiento());
-    vector.push(usuario.GetNivelCompromiso());
-    vector.push(usuario.GetModalidadEntreno());
-    vector.push(usuario.GetPreferenciasContacto());
+    const vector: number[] = [usuario.GetId(),usuario.GetNivelRendimiento(),usuario.GetNivelCompromiso(),
+    usuario.GetModalidadEntreno(),usuario.GetPreferenciasContacto()];
     
     if(es_entrenador)
       this.matriz_entrenadores.push(vector);
@@ -26,7 +21,7 @@ export class Emparejador {
      this.matriz_atletas.push(vector);
     }
 
-  CalculateSimilarity(usuario: number[], matriz_a_comparar: TipoMatriz): number {
+  CalculateSimilarity(usuario: number[], matriz_a_comparar: TipoMatriz, filtros:OpcionFiltro[]): number {
     let matriz;
     let id_elegido = usuario[0];
 
@@ -35,10 +30,20 @@ export class Emparejador {
     else
       matriz = this.matriz_atletas;
 
+
+    let indices_filtro: number[] = [];
+    filtros.forEach((filtro) => {
+      indices_filtro.push(filtro);
+    });
+
+    let matriz_filtrada = matriz.filter(row => 
+      indices_filtro.every((index: number) => row[index] === usuario[index])
+    );
+
     let puntuaciones: number[][] = [];
     let distance;
 
-    matriz.forEach((row) => {
+    matriz_filtrada.forEach((row) => {
       distance = this.EuclideanDistance(usuario, row);
       puntuaciones.push([row[0], distance]);
     });
@@ -76,7 +81,7 @@ export class Emparejador {
     return Math.sqrt(sum);  
   }
 
-  RealizarEmparejamiento(usuario: Usuario, es_entrenador:boolean): number {
+  RealizarEmparejamiento(usuario: Usuario, es_entrenador:boolean, filtros:OpcionFiltro[]): number {
     let id_usuario = usuario.GetId();
     let vector_usuario: number[] | undefined;
     let tipoMatriz: TipoMatriz;
@@ -91,9 +96,9 @@ export class Emparejador {
 
     if(vector_usuario != undefined){
       if(!es_entrenador)
-        id_devuelto = this.CalculateSimilarity(vector_usuario, TipoMatriz.ENTRENADORES);
+        id_devuelto = this.CalculateSimilarity(vector_usuario, TipoMatriz.ENTRENADORES, filtros);
       else
-        id_devuelto = this.CalculateSimilarity(vector_usuario, TipoMatriz.ATLETAS);
+        id_devuelto = this.CalculateSimilarity(vector_usuario, TipoMatriz.ATLETAS, filtros);
     }
 
     return id_devuelto;

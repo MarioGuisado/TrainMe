@@ -3,66 +3,69 @@ import { Usuario } from './usuario';
 
 
 export class Emparejador {
-  matriz_entrenadores: number[][];
-  matriz_atletas: number[][];
+  matriz_entrenadores: { [key: number]: number[] };
+  matriz_atletas: { [key: number]: number[] };
+
 
   constructor() {
-    this.matriz_entrenadores = [];
-    this.matriz_atletas = [];
+    this.matriz_entrenadores = {};
+    this.matriz_atletas = {};
   }
 
-  ProcesarUsuario(usuario: Usuario, es_entrenador:boolean): void{
-    const vector: number[] = [usuario.GetId(),usuario.GetNivelRendimiento(),usuario.GetNivelCompromiso(),
-    usuario.GetModalidadEntreno(),usuario.GetPreferenciasContacto()];
-    
+  ProcesarUsuario(usuario: Usuario, es_entrenador:boolean): void {
+    const vector: number[] = [usuario.GetNivelRendimiento(), usuario.GetNivelCompromiso(),
+    usuario.GetModalidadEntreno(), usuario.GetPreferenciasContacto()];
+
     if(es_entrenador)
-      this.matriz_entrenadores.push(vector);
+      this.matriz_entrenadores[usuario.GetId()] = vector;
     else
-     this.matriz_atletas.push(vector);
-    }
+      this.matriz_atletas[usuario.GetId()] = vector;
+  }
 
-  CalculateSimilarity(usuario: number[], matriz_a_comparar: TipoMatriz, filtros:OpcionFiltro[]): number {
+  CalculateSimilarity(id: number, matriz_a_comparar: TipoMatriz, filtros:OpcionFiltro[]): number {
     let matriz;
-    let id_elegido = usuario[0];
+    let id_elegido;
+    let usuario: number[];
 
-    if (matriz_a_comparar == TipoMatriz.ENTRENADORES)
+    if (matriz_a_comparar == TipoMatriz.ENTRENADORES){
       matriz = this.matriz_entrenadores;
-    else
+      usuario = this.matriz_atletas[id];
+    }
+    else{
       matriz = this.matriz_atletas;
-
-
+      usuario = this.matriz_entrenadores[id];
+    }
+    
     let indices_filtro: number[] = [];
     filtros.forEach((filtro) => {
       indices_filtro.push(filtro);
     });
 
-    let matriz_filtrada = matriz.filter(row => 
-      indices_filtro.every((index: number) => row[index] === usuario[index])
-    );
-
     let puntuaciones: number[][] = [];
-    let distance;
 
-    matriz_filtrada.forEach((row) => {
-      distance = this.EuclideanDistance(usuario, row);
-      puntuaciones.push([row[0], distance]);
+    Object.entries(matriz).forEach(([key, value]) => {
+      let isEqual = indices_filtro.every((index) => value[index] === usuario[index]);
+      if (isEqual) {
+        let distance = this.EuclideanDistance(usuario, value);
+        puntuaciones.push([Number(key), distance]);
+      }
     });
 
     puntuaciones.sort((a, b) => a[1] - b[1]);
-    id_elegido = puntuaciones[0][0];
+    id_elegido = puntuaciones[0][0] || id;
     
     return id_elegido;
   }
 
   GetUsuario(id_elegido: number, matriz_a_comparar: TipoMatriz): number[] | undefined {
-    let matriz: number[][];
+    let matriz: { [key: number]: number[] };
 
     if (matriz_a_comparar == TipoMatriz.ENTRENADORES)
       matriz = this.matriz_entrenadores;
     else
       matriz = this.matriz_atletas;
 
-    return matriz.find((row) => row[0] == id_elegido);
+    return matriz[id_elegido];
   }
 
   EuclideanDistance(vector1: number[], vector2: number[]): number {
@@ -83,7 +86,6 @@ export class Emparejador {
 
   RealizarEmparejamiento(usuario: Usuario, es_entrenador:boolean, filtros:OpcionFiltro[]): number {
     let id_usuario = usuario.GetId();
-    let vector_usuario: number[] | undefined;
     let tipoMatriz: TipoMatriz;
 
     if(es_entrenador)
@@ -91,14 +93,13 @@ export class Emparejador {
     else
       tipoMatriz = TipoMatriz.ATLETAS;
 
-    vector_usuario = this.GetUsuario(id_usuario, tipoMatriz);
     let id_devuelto = id_usuario;
 
-    if(vector_usuario != undefined){
+    if(id_usuario != undefined){
       if(!es_entrenador)
-        id_devuelto = this.CalculateSimilarity(vector_usuario, TipoMatriz.ENTRENADORES, filtros);
+        id_devuelto = this.CalculateSimilarity(id_usuario, TipoMatriz.ENTRENADORES, filtros);
       else
-        id_devuelto = this.CalculateSimilarity(vector_usuario, TipoMatriz.ATLETAS, filtros);
+        id_devuelto = this.CalculateSimilarity(id_usuario, TipoMatriz.ATLETAS, filtros);
     }
 
     return id_devuelto;

@@ -25,6 +25,13 @@ export enum TipoContacto{
 
 export enum TipoMatriz{
     ENTRENADORES,
-    ATLETAS
+    ATLETAS,
+}
+
+export enum OpcionFiltro{
+    Rendimiento = 1,
+    Compromiso = 2,
+    Modalidad = 3,
+    Contacto = 4,
 }
 

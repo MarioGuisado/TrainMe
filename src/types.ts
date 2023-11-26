@@ -29,9 +29,9 @@ export enum TipoMatriz{
 }
 
 export enum OpcionFiltro{
-    Rendimiento = 1,
-    Compromiso = 2,
-    Modalidad = 3,
-    Contacto = 4,
+    Rendimiento = 0,
+    Compromiso = 1,
+    Modalidad = 2,
+    Contacto = 3,
 }
 

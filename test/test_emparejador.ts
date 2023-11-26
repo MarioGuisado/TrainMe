@@ -60,7 +60,7 @@ describe('Emparejador', function() {
 
         it('Sugerir ID de atleta para un entrenador, filtrando por rendimiento y compromiso', function() {
             let id_esperado = 2;
-            let filtros = [OpcionFiltro.Rendimiento,OpcionFiltro.Contacto];
+            let filtros = [OpcionFiltro.Rendimiento,OpcionFiltro.Compromiso];
             expect(emparejador.RealizarEmparejamiento(entrenador1, true, filtros)).to.equal(id_esperado);
         });
 

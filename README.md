@@ -34,6 +34,20 @@ Para ejecutar los tests de la clase AtletaDisponible y EntrenadorDisponible usam
 ```bash
 npm run test
 ``` 
+## Contenedor 
+
+La imagen se construirá con la siguiente orden:
+
+```bash
+docker build -t marioguisado/trainme .
+```
+
+Para ejecutarlo, contamos con la orden:
+
+```bash
+docker run  -tv `pwd`:/app/test marioguisado/trainme
+```
+La imagen se encuentra subida a [Docker Hub](https://hub.docker.com/r/marioguisado/trainme)
 
 ## Documentación
 [Configuración necesaria.](./docs/configuracion.md)
@@ -45,4 +59,6 @@ npm run test
 [Toolchain.](./docs/toolchain.md)
 
 [Tests.](./docs/tests.md)
+
+[Contenedor](./docs/tests.md)
 

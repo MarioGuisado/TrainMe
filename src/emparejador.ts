@@ -12,17 +12,17 @@ export class Emparejador {
     this.matriz_atletas = {};
   }
 
-  ProcesarUsuario(usuario: Usuario, es_entrenador:boolean): void {
-    const vector: number[] = [usuario.GetNivelRendimiento(), usuario.GetNivelCompromiso(),
-    usuario.GetModalidadEntreno(), usuario.GetPreferenciasContacto()];
+  procesarUsuario(usuario: Usuario, es_entrenador:boolean): void {
+    const vector: number[] = [usuario.getNivelRendimiento(), usuario.getNivelCompromiso(),
+    usuario.getModalidadEntreno(), usuario.getPreferenciasContacto()];
 
     if(es_entrenador)
-      this.matriz_entrenadores[usuario.GetId()] = vector;
+      this.matriz_entrenadores[usuario.getId()] = vector;
     else
-      this.matriz_atletas[usuario.GetId()] = vector;
+      this.matriz_atletas[usuario.getId()] = vector;
   }
 
-  CalculateSimilarity(id: number, matriz_a_comparar: TipoMatriz, filtros:OpcionFiltro[]): number {
+  calculateSimilarity(id: number, matriz_a_comparar: TipoMatriz, filtros:OpcionFiltro[]): number {
     let matriz;
     let id_elegido;
     let usuario: number[];
@@ -36,17 +36,13 @@ export class Emparejador {
       usuario = this.matriz_entrenadores[id];
     }
     
-    let indices_filtro: number[] = [];
-    filtros.forEach((filtro) => {
-      indices_filtro.push(filtro);
-    });
-
+    let indices_filtro: number[] = filtros.map(filtro => filtro);
     let puntuaciones: number[][] = [];
 
     Object.entries(matriz).forEach(([key, value]) => {
       let isEqual = indices_filtro.every((index) => value[index] === usuario[index]);
       if (isEqual) {
-        let distance = this.EuclideanDistance(usuario, value);
+        let distance = this.euclideanDistance(usuario, value);
         puntuaciones.push([Number(key), distance]);
       }
     });
@@ -57,7 +53,7 @@ export class Emparejador {
     return id_elegido;
   }
 
-  GetUsuario(id_elegido: number, matriz_a_comparar: TipoMatriz): number[] | undefined {
+  getUsuario(id_elegido: number, matriz_a_comparar: TipoMatriz): number[] | undefined {
     let matriz: { [key: number]: number[] };
 
     if (matriz_a_comparar == TipoMatriz.ENTRENADORES)
@@ -68,7 +64,7 @@ export class Emparejador {
     return matriz[id_elegido];
   }
 
-  EuclideanDistance(vector1: number[], vector2: number[]): number {
+  euclideanDistance(vector1: number[], vector2: number[]): number {
     if (vector1.length !== vector2.length) {
         throw new Error('Los vectores deben tener la misma longitud');
     }
@@ -84,8 +80,8 @@ export class Emparejador {
     return Math.sqrt(sum);  
   }
 
-  RealizarEmparejamiento(usuario: Usuario, es_entrenador:boolean, filtros:OpcionFiltro[]): number {
-    let id_usuario = usuario.GetId();
+  realizarEmparejamiento(usuario: Usuario, es_entrenador:boolean, filtros:OpcionFiltro[]): number {
+    let id_usuario = usuario.getId();
     let tipoMatriz: TipoMatriz;
 
     if(es_entrenador)
@@ -97,9 +93,9 @@ export class Emparejador {
 
     if(id_usuario != undefined){
       if(!es_entrenador)
-        id_devuelto = this.CalculateSimilarity(id_usuario, TipoMatriz.ENTRENADORES, filtros);
+        id_devuelto = this.calculateSimilarity(id_usuario, TipoMatriz.ENTRENADORES, filtros);
       else
-        id_devuelto = this.CalculateSimilarity(id_usuario, TipoMatriz.ATLETAS, filtros);
+        id_devuelto = this.calculateSimilarity(id_usuario, TipoMatriz.ATLETAS, filtros);
     }
 
     return id_devuelto;

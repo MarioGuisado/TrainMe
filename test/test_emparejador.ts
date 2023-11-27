@@ -44,24 +44,24 @@ const entrenador3 = new Usuario(
 );
 
 const emparejador = new Emparejador();
-emparejador.ProcesarUsuario(atleta1, false);
-emparejador.ProcesarUsuario(atleta2, false);
-emparejador.ProcesarUsuario(entrenador1, true);
-emparejador.ProcesarUsuario(entrenador2, true);
-emparejador.ProcesarUsuario(entrenador3, true);
+emparejador.procesarUsuario(atleta1, false);
+emparejador.procesarUsuario(atleta2, false);
+emparejador.procesarUsuario(entrenador1, true);
+emparejador.procesarUsuario(entrenador2, true);
+emparejador.procesarUsuario(entrenador3, true);
 
 describe('Emparejador', function() {
     describe('Funciones', function() {
         it('Sugerir ID de entrenador para un atleta, filtrando por compromiso y contacto', function() {
             let id_esperado = 5;
             let filtros = [OpcionFiltro.Compromiso,OpcionFiltro.Contacto];
-            expect(emparejador.RealizarEmparejamiento(atleta1, false,filtros)).to.equal(id_esperado);
+            expect(emparejador.realizarEmparejamiento(atleta1, false,filtros)).to.equal(id_esperado);
         });
 
         it('Sugerir ID de atleta para un entrenador, filtrando por rendimiento y compromiso', function() {
             let id_esperado = 2;
             let filtros = [OpcionFiltro.Rendimiento,OpcionFiltro.Compromiso];
-            expect(emparejador.RealizarEmparejamiento(entrenador1, true, filtros)).to.equal(id_esperado);
+            expect(emparejador.realizarEmparejamiento(entrenador1, true, filtros)).to.equal(id_esperado);
         });
 
     });

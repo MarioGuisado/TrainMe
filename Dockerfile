@@ -4,9 +4,9 @@ LABEL maintainer="marioguisado@correo.ugr.es"
 
 WORKDIR /app
 
-COPY package*.json ./
-
 RUN mkdir -p /app/test && chown -R node:node /app
+
+COPY package*.json ./
 
 USER node
 

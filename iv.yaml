@@ -5,3 +5,4 @@ entidad:
 automatizar:
   fichero: package.json
   orden: npm run 
+test: test/test_emparejador.ts

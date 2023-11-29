@@ -6,6 +6,7 @@ automatizar:
   fichero: package.json
   orden: npm run 
 test: test/test_emparejador.ts
-ci:
+
+CI:
   - .github/workflows/cnode.yml
   - .circleci/config.yml

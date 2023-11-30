@@ -32,3 +32,8 @@ De los mencionados candidatos, y aprovechando que el desarrollo del proyecto (y 
 
 En cuanto a nuestra segunda herramienta, usar CircleCI o Semaphore no suponen en nuestro proyecto una diferencia tangible, pero cuando se trata de un proyecto a mayor escala si hay que compararlos y evaluar sus pros y contras. En [este artículo](https://stackshare.io/stackups/circleci-vs-semaphore) podemos ver un esbozo de el estado actual de las dos tecnologías y lo que opinan los desarrolladores que las emplean. Aunque Semaphore se anuncia como la plataforma más rápida de integración contínua del mercado, CircleCI obtiene muchos más votos en este aspecto, así como el de facilidad en el setup e integración con GitHub (claro que CircleCI tiene más público y por tanto puede recoger más votos). También podemos encontrar un sumario de las características de Semaphore [aquí](https://www.slant.co/options/626/~semaphore-ci-review) y de CircleCI [aquí](https://www.slant.co/options/625/~circleci-review), donde podemos comprobar que salvo en aspectos muy concretos que no nos afectarán, las dos herramientas son muy similares. En general, ambas tecnologías son igualmente viables y no existen motivos de peso para decantarse por una u otra, así que elegiremos CircleCI.
 
+## Versiones testeadas
+
+Con motivo de aumentar el rango de versiones distintas en las que testear el código, se han determinado, para el mismo sistema operativo (ubuntu-latest), emplear las versiones de Node 20.9.0, y 18.12.0.
+
+

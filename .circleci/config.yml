@@ -1,0 +1,15 @@
+version: 2.1
+
+jobs:
+  docker-test:
+    docker:
+      - image: marioguisado/trainme:latest
+    steps:
+      - checkout
+      - run: npm ci 
+      - run: npm test
+      
+workflows:
+  docker-test:
+    jobs:
+      - docker-test

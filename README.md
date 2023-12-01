@@ -62,3 +62,5 @@ La imagen se encuentra subida a [Docker Hub](https://hub.docker.com/r/marioguisa
 
 [Contenedor](./docs/contenedor.md)
 
+[Integración Continua](./docs/integracion.md)
+

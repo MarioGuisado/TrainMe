@@ -10,3 +10,5 @@ test: test/test_emparejador.ts
 CI:
   - .github/workflows/cnode.yml
   - .circleci/config.yml
+
+configuracion: src/config.ts

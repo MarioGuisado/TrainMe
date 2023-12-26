@@ -2,7 +2,6 @@ import { expect } from 'chai';
 import { Config } from '../src/config';
 import * as dotenv from 'dotenv';
 import * as fs from 'fs';
-import pino from 'pino';
 
 dotenv.config({ debug: true });
 

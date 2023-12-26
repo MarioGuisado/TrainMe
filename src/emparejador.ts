@@ -1,6 +1,9 @@
 import { TipoMatriz, OpcionFiltro} from './types';
 import { Usuario } from './usuario';
+import { Config } from './config';
 
+const config = new Config();
+const logger = config.getLogger();
 
 export class Emparejador {
   matriz_entrenadores: { [key: number]: number[] };
@@ -20,6 +23,8 @@ export class Emparejador {
       this.matriz_entrenadores[usuario.getId()] = vector;
     else
       this.matriz_atletas[usuario.getId()] = vector;
+
+    logger.info(`Usuario procesado:  ${vector}`);
   }
 
   calculateSimilarity(id: number, matriz_a_comparar: TipoMatriz, filtros:OpcionFiltro[]): number {
@@ -61,6 +66,7 @@ export class Emparejador {
     else
       matriz = this.matriz_atletas;
 
+    logger.info(`Usuario obtenido:  ${matriz[id_elegido]}`);
     return matriz[id_elegido];
   }
 
@@ -97,6 +103,8 @@ export class Emparejador {
       else
         id_devuelto = this.calculateSimilarity(id_usuario, TipoMatriz.ATLETAS, filtros);
     }
+
+    logger.info(`Usuario emparejado con:  ${id_devuelto}`);
 
     return id_devuelto;
   }

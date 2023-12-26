@@ -131,3 +131,5 @@ dist
 
 #VSCode
 .vscode
+
+.env

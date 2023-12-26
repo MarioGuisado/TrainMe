@@ -5,8 +5,8 @@ dotenv.config({ debug: true });
 
 export class Config {
     private configValues: { [key: string]: string } = {
-        LOG_LEVEL: process.env['LOG_LEVEL'] || 'info',
-        LOG_FILE_PATH: process.env['LOG_FILE_PATH'] || './logs.log',
+        LOG_LEVEL: 'info',
+        LOG_FILE_PATH: './logs.log',
     };
 
     constructor() {

@@ -5,7 +5,7 @@ import * as fs from 'fs';
 
 dotenv.config({ debug: true });
 
-describe('Config', () => {
+describe('Config & Logger', () => {
     let config: Config;
 
     beforeEach(() => {

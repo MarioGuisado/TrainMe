@@ -4,6 +4,9 @@ jobs:
   docker-test:
     docker:
       - image: marioguisado/trainme:latest
+    environment:
+      LOG_LEVEL: 'info'
+      LOG_FILE_PATH: './logs.log'
     steps:
       - checkout
       - run: npm ci 

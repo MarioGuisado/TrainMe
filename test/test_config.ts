@@ -21,17 +21,19 @@ describe('Config & Logger', () => {
         expect(() => config.get('NON_EXISTENT_KEY')).to.throw('La variable de entorno NON_EXISTENT_KEY no está configurada.');
     });
 
-    it('Devolver logger', () => {
-        const logger = config.getLogger();
-        expect(logger).to.have.property('info');
-    });
-
-    it('Creación de logger y verificación de ruta de archivo de logs', () => {
+    it('Escritura en archivos', (done) => {
         const logger = config.getLogger();
         const logFilePath = config.get('LOG_FILE_PATH');
+
+        logger.info('Mensaje de prueba');
+
+        setTimeout(() => {
+            const logFileExists = fs.existsSync(logFilePath);
+            expect(logFileExists).to.be.true;
     
-        expect(logger).to.exist;
-    
-        expect(logFilePath).to.equal('./logs.log'); 
+            const logFileContent = fs.readFileSync(logFilePath, 'utf-8');
+            expect(logFileContent).to.include('Mensaje de prueba');
+            done();
+        }, 1000);
     });
 });

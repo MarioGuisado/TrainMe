@@ -17,8 +17,6 @@ export class Config {
                 const githubEnvVar = process.env[`GITHUB_ENV_${key}`];
                 if (githubEnvVar) {
                     this.configValues[key] = githubEnvVar;
-                } else {
-                    throw new Error(`La variable de entorno ${key} no está configurada.`);
                 }
             }
         }

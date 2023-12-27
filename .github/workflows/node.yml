@@ -7,6 +7,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      LOG_LEVEL: ${{ secrets.LOG_LEVEL }}
+      LOG_FILE_PATH: ${{ secrets.LOG_FILE_PATH }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

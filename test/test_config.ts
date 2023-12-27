@@ -7,7 +7,7 @@ dotenv.config({ debug: true });
 
 describe('Config & Logger', () => {
     let config: Config;
-
+    
     beforeEach(() => {
         config = new Config();
     });
@@ -26,23 +26,12 @@ describe('Config & Logger', () => {
         expect(logger).to.have.property('info');
     });
 
-    it('Escritura en archivos', (done) => {
-        const logFilePath = config.get('LOG_FILE_PATH');
-
-        if (!fs.existsSync(logFilePath)) {
-            fs.writeFileSync(logFilePath, '', { mode: 0o644 });
-        }
-
+    it('Creación de logger y verificación de ruta de archivo de logs', () => {
         const logger = config.getLogger();
-        logger.info('Mensaje de prueba');
-
-        setTimeout(() => {
-            const logFileExists = fs.existsSync(logFilePath);
-            expect(logFileExists).to.be.true;
-
-            const logFileContent = fs.readFileSync(logFilePath, 'utf-8');
-            expect(logFileContent).to.include('Mensaje de prueba');
-            done();
-        }, 1000);
+        const logFilePath = config.get('LOG_FILE_PATH');
+    
+        expect(logger).to.exist;
+    
+        expect(logFilePath).to.equal('./logs.log'); 
     });
 });

@@ -7,7 +7,7 @@ dotenv.config({ debug: true });
 
 describe('Config & Logger', () => {
     let config: Config;
-    
+
     beforeEach(() => {
         config = new Config();
     });
@@ -19,6 +19,11 @@ describe('Config & Logger', () => {
 
     it('Error si el valor no existe', () => {
         expect(() => config.get('NON_EXISTENT_KEY')).to.throw('La variable de entorno NON_EXISTENT_KEY no está configurada.');
+    });
+
+    it('Devolver logger', () => {
+        const logger = config.getLogger();
+        expect(logger).to.have.property('info');
     });
 
     it('Escritura en archivos', (done) => {

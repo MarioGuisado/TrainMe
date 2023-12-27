@@ -1,5 +1,6 @@
 import * as dotenv from 'dotenv';
 import pino from 'pino';
+import fs from 'fs';
 
 dotenv.config({ debug: true });
 
@@ -32,6 +33,7 @@ export class Config {
 
     getLogger(): pino.Logger {
         const filePath = this.get('LOG_FILE_PATH');
+        fs.chmodSync(filePath, '644');
         return pino(pino.destination(filePath));
     }
 }

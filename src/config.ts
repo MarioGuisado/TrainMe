@@ -35,9 +35,9 @@ export class Config {
         const filePath = this.get('LOG_FILE_PATH');
 
         if (fs.existsSync(filePath)) {
-            fs.chmodSync(filePath, '644');
+            fs.chmodSync(filePath, '777');
         } else {
-            fs.writeFileSync(filePath, '', { mode: 0o644 });
+            fs.writeFileSync(filePath, '', { mode: 0o777 });
         }
 
         return pino(pino.destination(filePath));

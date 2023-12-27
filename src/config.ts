@@ -33,7 +33,13 @@ export class Config {
 
     getLogger(): pino.Logger {
         const filePath = this.get('LOG_FILE_PATH');
-        fs.chmodSync(filePath, '644');
+
+        if (fs.existsSync(filePath)) {
+            fs.chmodSync(filePath, '644');
+        } else {
+            fs.writeFileSync(filePath, '', { mode: 0o644 });
+        }
+
         return pino(pino.destination(filePath));
     }
 }

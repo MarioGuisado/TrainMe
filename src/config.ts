@@ -2,22 +2,18 @@ import * as dotenv from 'dotenv';
 import pino from 'pino';
 import fs from 'fs';
 
-
 export class Config {
     private configValues: { [key: string]: string } = {
         LOG_LEVEL: 'info',
         LOG_FILE_PATH: './logs.log',
     };
 
-    constructor(config?: { [key: string]: string }) {
-        for (const key in this.configValues) {
-            if (!config && process.env[key]) {
-                dotenv.config({ debug: true });
-                this.configValues[key] = process.env[key]!;
-            } else {
-                const githubEnvVar = process.env[`GITHUB_ENV_${key}`];
-                if (githubEnvVar) {
-                    this.configValues[key] = githubEnvVar;
+    constructor(config?: boolean) {
+        if (config){
+            dotenv.config({ debug: true });
+            for (const key in this.configValues) {
+                if (process.env[key]) {
+                    this.configValues[key] = process.env[key]!;
                 }
             }
         }

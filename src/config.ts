@@ -2,7 +2,6 @@ import * as dotenv from 'dotenv';
 import pino from 'pino';
 import fs from 'fs';
 
-dotenv.config({ debug: true });
 
 export class Config {
     private configValues: { [key: string]: string } = {
@@ -10,9 +9,10 @@ export class Config {
         LOG_FILE_PATH: './logs.log',
     };
 
-    constructor() {
+    constructor(config?: { [key: string]: string }) {
         for (const key in this.configValues) {
-            if (process.env[key]) {
+            if (!config && process.env[key]) {
+                dotenv.config({ debug: true });
                 this.configValues[key] = process.env[key]!;
             } else {
                 const githubEnvVar = process.env[`GITHUB_ENV_${key}`];

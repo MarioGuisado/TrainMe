@@ -25,6 +25,7 @@ describe('Config & Logger', () => {
     });
 
     it('Escritura en archivos', (done) => {
+        fs.writeFileSync('./test/test.log', '', { mode: 0o777 });
         config.set('LOG_FILE_PATH', './test/test.log');
         const logFilePath = config.get('LOG_FILE_PATH');
         const logger = config.getLogger();

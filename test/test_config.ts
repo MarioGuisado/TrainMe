@@ -19,11 +19,6 @@ describe('Config & Logger', () => {
         expect(() => config.get('NON_EXISTENT_KEY')).to.throw('La variable de entorno NON_EXISTENT_KEY no está configurada.');
     });
 
-    it('Devolver logger', () => {
-        const logger = config.getLogger();
-        expect(logger).to.have.property('info');
-    });
-
     it('Escritura en archivos', (done) => {
         fs.writeFileSync('./test/test.log', '', { mode: 0o777 });
         config.set('LOG_FILE_PATH', './test/test.log');

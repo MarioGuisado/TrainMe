@@ -25,11 +25,12 @@ describe('Config & Logger', () => {
     });
 
     it('Escritura en archivos', (done) => {
-        const logger = config.getLogger();
+        config.set('LOG_FILE_PATH', './test/test.log');
         const logFilePath = config.get('LOG_FILE_PATH');
-
+        const logger = config.getLogger();
+    
         logger.info('Mensaje de prueba');
-
+    
         setTimeout(() => {
             const logFileExists = fs.existsSync(logFilePath);
             expect(logFileExists).to.be.true;

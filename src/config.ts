@@ -27,15 +27,14 @@ export class Config {
         }
     }
 
+    set(key: string, value: string): void {
+        this.configValues[key] = value;
+    }
+
     getLogger(): pino.Logger {
         const filePath = this.get('LOG_FILE_PATH');
-
-        if (fs.existsSync(filePath)) {
-            fs.chmodSync(filePath, '777');
-        } else {
-            fs.writeFileSync(filePath, '', { mode: 0o777 });
-        }
 
         return pino(pino.destination(filePath));
     }
 }
+    
